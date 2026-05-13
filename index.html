@@ -22,33 +22,30 @@
   .header-brand { display: flex; align-items: baseline; cursor: pointer; flex: 1; }
   .header-brand .title { font-weight: 700; font-size: 32px; color: var(--white); letter-spacing: -0.6px; }
   .title-sep { display: inline; }
-  @media (max-width: 620px) {
-    .title-sep { display: none; }
-    .title-line { display: block; }
-  }
-  .header-right { display: flex; align-items: center; gap: 10px; }
-  .header-meta { font-size: 11px; color: #5A5550; letter-spacing: 0.5px; white-space: nowrap; }
-  .header-meta .sep { margin: 0 6px; }
-  .header-about-btn { font-size: 11px; color: #5A5550; letter-spacing: 0.5px; cursor: pointer; background: none; border: none; padding: 0; font-family: inherit; transition: color 0.15s; white-space: nowrap; }
-  .header-about-btn:hover { color: #9B9589; }
+  @media (max-width: 620px) { .title-sep { display: none; } .title-line { display: block; } }
+  .header-right { display: flex; flex-direction: column; align-items: flex-end; gap: 3px; flex-shrink: 0; }
+  .header-meta { font-size: 11px; color: #5A5550; letter-spacing: 0.5px; white-space: nowrap; line-height: 1.2; }
+  .header-meta .sep { margin: 0 5px; }
+  .header-about-btn { font-size: 11px; color: #7A7570; letter-spacing: 0.5px; cursor: pointer; background: none; border: none; padding: 0; font-family: inherit; transition: color 0.15s; white-space: nowrap; line-height: 1.2; }
+  .header-about-btn:hover { color: #B0A8A0; }
 
-  /* Nav — full-height flush blocks, no radius, padding matches page-wrap */
+  /* Nav */
   .header-nav { display: flex; padding: 0 2.5rem; height: 36px; align-items: stretch; gap: 0; overflow-x: auto; scrollbar-width: none; }
   .header-nav::-webkit-scrollbar { display: none; }
   .nav-link { font-size: 11px; font-weight: 700; letter-spacing: 0.8px; color: #7A7570; text-transform: uppercase; padding: 0 14px; display: flex; align-items: center; cursor: pointer; border-radius: 0; transition: color 0.15s, background 0.15s; white-space: nowrap; flex-shrink: 0; }
   .nav-link:hover { color: var(--white); background: rgba(255,255,255,0.07); }
   .nav-link.active { color: var(--white); background: var(--accent); }
 
-  /* Scrolled-down: snap instantly to avoid glitch mid-transition */
+  /* Scrolled-down */
   header.scrolled .header-top { height: 0 !important; opacity: 0; pointer-events: none; padding-top: 0; padding-bottom: 0; }
 
   /* ── LAYOUT ── */
   .page-wrap { max-width: 1280px; margin: 0 auto; padding: 2rem 2.5rem 4rem; }
   @media (max-width: 620px) {
     .page-wrap { padding: 1.5rem 1rem 3rem; }
-    .header-top { padding: 0 1rem; height: auto; min-height: 80px; flex-direction: column; align-items: flex-start; justify-content: center; gap: 4px; padding-top: 10px; padding-bottom: 10px; }
-    .header-brand .title { font-size: 26px; line-height: 1.05; letter-spacing: -0.4px; }
-    .header-right { flex-direction: row; gap: 8px; flex-wrap: wrap; }
+    .header-top { padding: 0 1rem; height: auto; min-height: 72px; padding-top: 10px; padding-bottom: 10px; align-items: center; }
+    .header-brand .title { font-size: 24px; line-height: 1.05; letter-spacing: -0.4px; }
+    .header-meta, .header-about-btn { font-size: 10px; }
     .header-nav { padding: 0; height: 34px; }
     .nav-link { padding: 0 10px; font-size: 10px; letter-spacing: 0.4px; }
     footer { padding: 1.25rem 1rem; }
@@ -189,30 +186,29 @@
   .topic-def-name { font-weight: 800; font-size: 14px; margin-bottom: 5px; }
   .topic-def-desc { font-size: 12px; color: var(--ink-mid); line-height: 1.6; }
 
-  .nav-about { font-size: 11px; font-weight: 700; letter-spacing: 0.8px; color: #7A7570; text-transform: uppercase; padding: 0 14px; display: none; align-items: center; cursor: pointer; transition: color 0.15s; white-space: nowrap; flex-shrink: 0; border-left: 1px solid rgba(255,255,255,0.1); margin-left: auto; }
-  .nav-about:hover { color: var(--white); }
-  @media (max-width: 820px) { .nav-about { display: flex; } }
-  .topic-panel { display: none; position: fixed; inset: 0; background: rgba(20,18,15,0.92); z-index: 500; align-items: center; justify-content: center; padding: 2rem; }
+  .nav-about { display: none; } /* removed from nav */
+  .topic-panel { display: none; position: fixed; inset: 0; background: rgba(20,18,15,0.92); z-index: 500; align-items: center; justify-content: center; padding: 1.5rem; }
   .topic-panel.open { display: flex; }
-  .topic-panel-inner { background: var(--white); border-radius: 8px; overflow: hidden; max-width: 900px; width: 100%; max-height: 90vh; display: grid; grid-template-columns: 1fr 1fr; }
-  .topic-panel-img-wrap { overflow: hidden; background: var(--cream); position: relative; }
-  .topic-panel-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .topic-panel-text { padding: 2.5rem; overflow-y: auto; display: flex; flex-direction: column; }
+  .topic-panel-inner { background: var(--white); border-radius: 8px; overflow: hidden; width: 100%; max-width: 1000px; height: 85vh; display: grid; grid-template-columns: 1fr 380px; }
+  .topic-panel-img-wrap { overflow: hidden; background: var(--cream); position: relative; height: 100%; }
+  .topic-panel-img-wrap img { width: 100%; height: 100%; object-fit: contain; display: block; }
+  .topic-panel-text { padding: 2rem 2rem 1.5rem; overflow-y: auto; display: flex; flex-direction: column; border-left: 1px solid var(--border); }
   .topic-panel-label { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ink-light); margin-bottom: 8px; }
-  .topic-panel-name { font-weight: 800; font-size: 26px; line-height: 1.1; margin-bottom: 1rem; color: var(--ink); }
-  .topic-panel-desc { font-size: 14px; line-height: 1.75; color: var(--ink-mid); flex: 1; }
-  .topic-panel-nav { display: flex; align-items: center; justify-content: space-between; margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border); }
+  .topic-panel-name { font-weight: 800; font-size: 24px; line-height: 1.1; margin-bottom: 1rem; color: var(--ink); }
+  .topic-panel-desc { font-size: 13px; line-height: 1.75; color: var(--ink-mid); flex: 1; }
+  .topic-panel-nav { display: flex; align-items: center; justify-content: space-between; margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border); flex-shrink: 0; }
   .topic-panel-arrow { background: none; border: 1.5px solid var(--border); border-radius: 4px; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 16px; color: var(--ink-mid); transition: all 0.15s; }
   .topic-panel-arrow:hover { border-color: var(--ink); color: var(--ink); }
   .topic-panel-arrow:disabled { opacity: 0.25; cursor: default; }
-  .topic-panel-close { position: absolute; top: 1rem; right: 1rem; background: rgba(0,0,0,0.45); border: none; color: white; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center; z-index: 10; }
+  .topic-panel-close { position: absolute; top: 0.75rem; right: 0.75rem; background: rgba(0,0,0,0.4); border: none; color: white; width: 30px; height: 30px; border-radius: 50%; cursor: pointer; font-size: 14px; display: flex; align-items: center; justify-content: center; z-index: 10; }
   .topic-panel-close:hover { background: rgba(0,0,0,0.7); }
   .topic-panel-counter { font-size: 11px; color: var(--ink-light); font-weight: 600; }
   @media (max-width: 680px) {
-    .topic-panel-inner { grid-template-columns: 1fr; max-height: 95vh; }
-    .topic-panel-img-wrap { height: 220px; }
-    .topic-panel-text { padding: 1.5rem; }
+    .topic-panel-inner { grid-template-columns: 1fr; grid-template-rows: 55% 45%; height: 92vh; }
+    .topic-panel-img-wrap { height: 100%; }
+    .topic-panel-text { padding: 1.25rem; border-left: none; border-top: 1px solid var(--border); }
     .topic-panel { padding: 0.5rem; }
+    .topic-panel-name { font-size: 20px; }
   }
 
   /* About modal */
@@ -258,9 +254,9 @@
     <button class="about-modal-close" onclick="closeAbout()">✕</button>
     <div class="about-title">About the Collection</div>
     <div class="about-body">
-      <p>The Design Drawing Collection began as a practical resource — a set of objects gathered by drawing staff and students at TU Delft's Faculty of Industrial Design Engineering to serve as case studies for sketching exercises. Over decades, through the enthusiasm of professors Marc Vermees, JanWillem Hoftijzer, and Ad van Dijk, it quietly grew into something larger: a significant archive of historically relevant product design, reflecting the material culture and industrial aesthetics of the twentieth century.</p>
-      <p>The objects still fulfil their original purpose — chrome surfaces, cylindrical forms, multiple roundings, exploded assemblies — but they also offer a broader window into the history of product design and the evolution of industrial manufacturing. Today the collection spans over a thousand pieces.</p>
-      <p>For years the collection was largely undocumented. As part of the Heritage Project, student assistants from the design drawing programme are now systematically cataloguing and photographing the objects. This website is part of that effort: a digital archive that makes the collection accessible and searchable, and that connects each object back to the drawing skills it was always meant to teach.</p>
+      <p>The Design Drawing Collection began as a practical resource — a set of objects gathered by drawing staff at TU Delft's Faculty of Industrial Design Engineering to serve as case studies for sketching exercises. Through the enthusiasm of professors like JanWillem Hoftijzer, Marc Vermees and Ad van Dijk, it quietly grew larger and larger: a significant archive of historically relevant product design, reflecting the material culture and industrial aesthetics of the twentieth century.</p>
+      <p>The objects still serve as references for case studies on e.g. chromium, multiple roundings or exploded views — but they also offer a broader window into the history of product design and the evolution of industrial manufacturing. Today the collection spans over a thousand pieces.</p>
+      <p>For years the collection was largely undocumented. As part of the Heritage Project, student assistants from the design drawing programme are now systematically cataloguing and photographing the objects. This website is part of that effort: a digital archive that makes the collection accessible and searchable, and that connects each object back to the drawing skills it was meant to teach.</p>
     </div>
   </div>
 </div>
@@ -272,6 +268,7 @@
     </div>
     <div class="header-right">
       <span class="header-meta">IDE · TU Delft<span class="sep">·</span><span id="header-count">—</span></span>
+      <button class="header-about-btn" onclick="openAbout()">About this collection</button>
     </div>
   </div>
   <nav class="header-nav">
@@ -280,7 +277,7 @@
     <span class="nav-link" id="nav-designers" onclick="navigate('designers')">Designers</span>
     <span class="nav-link" id="nav-eras" onclick="navigate('eras')">Eras</span>
     <span class="nav-link" id="nav-topics" onclick="navigate('topics')">Topics</span>
-    <span class="nav-about" onclick="openAbout()">About</span>
+    <span class="nav-link" id="nav-drawings" onclick="navigate('drawings')" style="display:none">Drawings</span>
   </nav>
 </header>
 
@@ -288,6 +285,9 @@
 
   <!-- PRODUCTS / GRID VIEW -->
   <div id="view-products" style="display:none">
+    <div style="margin-bottom:1.5rem; padding-bottom:1.5rem; border-bottom:1px solid var(--border);">
+      <p style="font-size:14px;line-height:1.7;color:var(--ink-mid);max-width:720px;">A collection of over a thousand historically relevant product design objects, assembled at TU Delft IDE as reference material for design drawing education. <a onclick="openAbout()" style="color:var(--ink);font-weight:600;text-decoration:underline;cursor:pointer">Read more →</a></p>
+    </div>
     <div class="controls-bar">
       <div class="search-wrap">
         <span class="search-icon">⌕</span>
@@ -360,7 +360,12 @@
     <div id="eras-grid" class="index-grid"></div>
   </div>
 
-  <!-- TOPICS PAGE -->
+  <!-- DRAWINGS VIEW (hidden until drawings.csv is added) -->
+  <div id="view-drawings" style="display:none">
+    <div class="page-title">Drawings</div>
+    <p style="font-size:14px;color:var(--ink-mid);line-height:1.7;max-width:620px;margin-bottom:2rem;">Student drawings from the Design Drawing Collection archive. Each drawing is linked to the object it depicts.</p>
+    <div id="drawings-grid" class="product-grid"></div>
+  </div>
   <div id="view-topics" style="display:none">
     <div class="page-title">Drawing Topics</div>
     <p class="topics-intro">Browse the collection by drawing technique. Each product has been tagged based on its geometric and material properties. Select one or more topics to find matching objects. For more information on Delft Design Drawing, visit <a href="http://www.delftdesigndrawing.com/" target="_blank" style="color:var(--accent);text-decoration:underline">delftdesigndrawing.com</a>.</p>
@@ -419,7 +424,12 @@ async function loadData() {
       fetch('eras.json').then(r=>r.ok?r.json():{}).then(d=>{metadata.eras=d||{};}),
     ]);
     buildFilters();
-    document.getElementById('header-count').textContent = allProducts.length + ' objects';    routeFromHash();
+    document.getElementById('header-count').textContent = allProducts.length + ' objects';
+    // Show Drawings nav only if drawings.csv exists
+    fetch('drawings.csv', { method: 'HEAD' }).then(r => {
+      if (r.ok) { const el = document.getElementById('nav-drawings'); if (el) el.style.display = 'flex'; }
+    }).catch(() => {});
+    routeFromHash();
   } catch(e) {
     document.getElementById('grid-container').innerHTML =
       '<div class="empty-state"><strong>Could not load products.csv</strong></div>';
@@ -450,12 +460,13 @@ function routeFromHash() {
   else if (view === 'designers') { showView('designers'); renderIndex('designers'); }
   else if (view === 'eras') { showView('eras'); renderIndex('eras'); }
   else if (view === 'topics') { showView('topics'); renderTopicsPage(); }
+  else if (view === 'drawings') { showView('drawings'); }
   else { showView('products'); applyFilters(); }
   window.scrollTo(0,0);
 }
 
 function setNavActive(view) {
-  ['products','brands','designers','eras','topics'].forEach(v => {
+  ['products','brands','designers','eras','topics','drawings'].forEach(v => {
     const el = document.getElementById('nav-' + v);
     if (el) el.classList.toggle('active', v === view);
   });
@@ -464,7 +475,7 @@ function setNavActive(view) {
 window.addEventListener('popstate', routeFromHash);
 
 // ── VIEWS ──────────────────────────────────────────────────────
-const VIEWS = ['products','detail','category','brands','designers','eras','topics'];
+const VIEWS = ['products','detail','category','brands','designers','eras','topics','drawings'];
 function showView(v) {
   VIEWS.forEach(id => { const el = document.getElementById('view-'+id); if(el) el.style.display = id===v ? 'block' : 'none'; });
 }
