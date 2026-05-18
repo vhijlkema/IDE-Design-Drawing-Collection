@@ -16,17 +16,16 @@
   html { scroll-behavior: smooth; }
   body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--cream); color: var(--ink); font-size: 15px; line-height: 1.6; min-height: 100vh; }
 
-  /* ── HEADER ── */
+  /* HEADER */
   header { background: var(--ink); color: var(--white); position: sticky; top: 0; z-index: 100; }
   .header-top { padding: 0 2.5rem; display: flex; align-items: center; justify-content: space-between; height: 64px; border-bottom: 1px solid rgba(255,255,255,0.07); transition: height 0.28s ease, opacity 0.28s ease, padding 0.28s ease; overflow: hidden; }
   .header-brand { display: flex; align-items: baseline; cursor: pointer; flex: 1; }
   .header-brand .title { font-weight: 700; font-size: 32px; color: var(--white); letter-spacing: -0.6px; }
   .title-sep { display: inline; }
-  @media (max-width: 620px) { .title-sep { display: none; } .title-line { display: block; } }
-  .header-right { display: flex; flex-direction: column; align-items: flex-end; gap: 3px; flex-shrink: 0; }
-  .header-meta { font-size: 11px; color: #5A5550; letter-spacing: 0.5px; white-space: nowrap; line-height: 1.2; }
+  .header-right { display: flex; align-items: center; gap: 14px; flex-shrink: 0; }
+  .header-meta { font-size: 11px; color: #5A5550; letter-spacing: 0.5px; white-space: nowrap; }
   .header-meta .sep { margin: 0 5px; }
-  .header-about-btn { font-size: 11px; color: #7A7570; letter-spacing: 0.5px; cursor: pointer; background: none; border: none; padding: 0; font-family: inherit; transition: color 0.15s; white-space: nowrap; line-height: 1.2; }
+  .header-about-btn { font-size: 11px; color: #7A7570; letter-spacing: 0.5px; cursor: pointer; background: none; border: none; padding: 0; font-family: inherit; transition: color 0.15s; white-space: nowrap; }
   .header-about-btn:hover { color: #B0A8A0; }
 
   /* Nav */
@@ -35,16 +34,18 @@
   .nav-link { font-size: 11px; font-weight: 700; letter-spacing: 0.8px; color: #7A7570; text-transform: uppercase; padding: 0 14px; display: flex; align-items: center; cursor: pointer; border-radius: 0; transition: color 0.15s, background 0.15s; white-space: nowrap; flex-shrink: 0; }
   .nav-link:hover { color: var(--white); background: rgba(255,255,255,0.07); }
   .nav-link.active { color: var(--white); background: var(--accent); }
-
-  /* Scrolled-down */
   header.scrolled .header-top { height: 0 !important; opacity: 0; pointer-events: none; padding-top: 0; padding-bottom: 0; }
 
-  /* ── LAYOUT ── */
+  /* LAYOUT */
   .page-wrap { max-width: 1280px; margin: 0 auto; padding: 2rem 2.5rem 4rem; }
+
   @media (max-width: 620px) {
     .page-wrap { padding: 1.5rem 1rem 3rem; }
-    .header-top { padding: 0 1rem; height: auto; min-height: 72px; padding-top: 10px; padding-bottom: 10px; align-items: center; }
+    .header-top { padding: 0 1rem; height: auto; min-height: 72px; padding-top: 10px; padding-bottom: 10px; }
     .header-brand .title { font-size: 24px; line-height: 1.05; letter-spacing: -0.4px; }
+    .title-sep { display: none; }
+    .title-line { display: block; }
+    .header-right { flex-direction: column; align-items: flex-end; gap: 2px; }
     .header-meta, .header-about-btn { font-size: 10px; }
     .header-nav { padding: 0; height: 34px; }
     .nav-link { padding: 0 10px; font-size: 10px; letter-spacing: 0.4px; }
@@ -57,32 +58,33 @@
     .header-nav { padding: 0 1.25rem; height: 36px; }
     .nav-link { padding: 0 12px; font-size: 10px; }
   }
-  /* ── CONTROLS ── */
+
+  /* CONTROLS */
   .controls-bar { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-bottom: 1rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border); }
   .search-wrap { position: relative; flex: 1; min-width: 200px; }
   .search-icon { position: absolute; left: 11px; top: 50%; transform: translateY(-50%); color: var(--ink-light); pointer-events: none; font-size: 13px; }
   .search-input { width: 100%; padding: 8px 12px 8px 32px; border: 1px solid var(--border); border-radius: 6px; background: var(--white); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 13px; color: var(--ink); outline: none; transition: border-color 0.15s; }
   .search-input:focus { border-color: var(--ink-mid); }
   .search-input::placeholder { color: var(--ink-light); }
-
   .filter-wrap { position: relative; display: flex; align-items: center; }
   .filter-select { padding: 8px 32px 8px 11px; border: 1px solid var(--border); border-radius: 6px; background: var(--white); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 12px; color: var(--ink); cursor: pointer; outline: none; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='none'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%239B9589' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 10px center; transition: all 0.15s; }
   .filter-select:focus { border-color: var(--ink-mid); }
   .filter-select.active { border-color: var(--accent); color: var(--accent); background-color: var(--accent-light); padding-right: 44px; }
   .filter-clear-x { display: none; position: absolute; right: 24px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; color: var(--accent); font-size: 14px; line-height: 1; padding: 2px 4px; font-weight: 700; }
   .filter-wrap.has-value .filter-clear-x { display: block; }
-
   .clear-all-btn { padding: 8px 12px; border: 1px solid var(--border); border-radius: 4px; background: transparent; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 12px; color: var(--ink-mid); cursor: pointer; transition: all 0.15s; white-space: nowrap; }
   .clear-all-btn:hover { background: var(--white); border-color: var(--ink-mid); color: var(--ink); }
-
-  /* Active filter chips row */
   .active-chips { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 1rem; min-height: 0; }
-  .chip { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 600; padding: 4px 8px 4px 10px; background: var(--accent-light); color: var(--accent); border-radius: 4px; border: 1px solid rgba(255,96,98,0.25); }
+  .chip { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 600; padding: 4px 8px 4px 10px; background: var(--accent-light); color: var(--accent); border-radius: 4px; border: 1px solid rgba(211,77,77,0.25); }
   .chip-x { background: none; border: none; cursor: pointer; color: var(--accent); font-size: 13px; font-weight: 700; line-height: 1; padding: 0 2px; }
-
   .result-count { font-size: 12px; color: var(--ink-light); margin-bottom: 1.25rem; }
 
-  /* ── GRID ── */
+  /* INTRO BANNER */
+  .intro-banner { margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
+  .intro-banner p { font-size: 14px; line-height: 1.7; color: var(--ink-mid); max-width: 820px; }
+  .intro-banner a { color: var(--ink); font-weight: 600; text-decoration: underline; cursor: pointer; }
+
+  /* GRID */
   .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 14px; }
   .product-card { background: var(--white); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s; }
   .product-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(26,24,20,0.07); border-color: #C8C0B4; }
@@ -93,23 +95,17 @@
   .card-body { padding: 10px 12px 12px; }
   .card-id { font-size: 10px; color: var(--ink-light); font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 3px; }
   .card-name { font-weight: 800; font-size: 13px; line-height: 1.25; margin-bottom: 2px; color: var(--ink); }
-  .card-sub { font-size: 11px; color: var(--ink-mid); margin-bottom: 8px; }
-  .card-tags { display: flex; gap: 4px; flex-wrap: wrap; }
-  .tag { font-size: 10px; padding: 2px 7px; border-radius: 3px; border: 1px solid var(--border); color: var(--ink-mid); background: var(--cream); cursor: pointer; transition: all 0.12s; white-space: nowrap; }
-  .tag:hover { border-color: var(--ink-mid); color: var(--ink); }
+  .card-sub { font-size: 11px; color: var(--ink-mid); }
 
-  /* ── BREADCRUMB ── */
+  /* BREADCRUMB */
   .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--ink-mid); margin-bottom: 1.5rem; flex-wrap: wrap; }
   .breadcrumb a { color: var(--ink-mid); text-decoration: none; cursor: pointer; }
   .breadcrumb a:hover { color: var(--accent); }
   .breadcrumb span { color: var(--ink-light); }
 
-  /* ── PRODUCT DETAIL ── */
+  /* PRODUCT DETAIL */
   .detail-layout { display: grid; grid-template-columns: 360px 1fr; gap: 3rem; align-items: start; }
-  @media (max-width: 820px) {
-    .detail-layout { grid-template-columns: 1fr; gap: 1.5rem; }
-    .detail-image-wrap { position: static !important; }
-  }
+  @media (max-width: 820px) { .detail-layout { grid-template-columns: 1fr; gap: 1.5rem; } .detail-image-wrap { position: static !important; } }
   .detail-image-wrap { position: sticky; top: 52px; }
   .detail-img-canvas-wrap { width: 100%; aspect-ratio: 3/4; border-radius: 4px; border: 1px solid var(--border); background: var(--cream); overflow: hidden; }
   .detail-img-canvas-wrap canvas { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -126,7 +122,14 @@
   .related-section { margin-top: 3rem; }
   .related-title { font-weight: 800; font-size: 18px; margin-bottom: 1rem; }
 
-  /* ── CATEGORY PAGES ── */
+  /* DRAWING TOPICS on detail page */
+  .topics-section { margin-top: 1.5rem; }
+  .topics-label { font-size: 10px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: var(--ink-light); margin-bottom: 10px; }
+  .topic-badge { display: inline-flex; align-items: center; font-size: 11px; font-weight: 700; padding: 5px 10px; border-radius: 4px; background: var(--ink); color: var(--white); cursor: pointer; transition: background 0.15s; white-space: nowrap; border: none; }
+  .topic-badge:hover { background: #2E2A26; }
+  .topic-badges-wrap { display: flex; gap: 6px; flex-wrap: wrap; }
+
+  /* CATEGORY PAGES */
   .category-image { width: 140px; height: 140px; object-fit: contain; border-radius: 4px; border: 1px solid var(--border); background: var(--white); padding: 16px; display: block; margin-bottom: 1.25rem; }
   .category-image-placeholder { width: 80px; height: 80px; border-radius: 4px; border: 1px solid var(--border); background: var(--white); display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem; }
   .category-image-placeholder svg { width: 30px; height: 30px; opacity: 0.15; }
@@ -135,13 +138,11 @@
   .category-desc { font-size: 14px; line-height: 1.75; color: var(--ink-mid); max-width: 620px; margin-bottom: 2rem; }
   .category-no-desc { font-size: 12px; color: var(--ink-light); font-style: italic; margin-bottom: 2rem; }
   .category-section-title { font-weight: 700; font-size: 15px; margin-bottom: 1rem; padding-top: 1.5rem; border-top: 1px solid var(--border); color: var(--ink-mid); text-transform: uppercase; letter-spacing: 0.5px; }
-
-  /* Era page — minimal typographic header, no label, no heavy border */
   .era-header { padding: 2rem 0 1.5rem; margin-bottom: 2rem; display: flex; align-items: baseline; gap: 1.5rem; flex-wrap: wrap; }
   .era-header .era-name { font-weight: 800; font-size: 52px; line-height: 1; color: var(--ink); }
   .era-header .era-dates { font-weight: 700; font-size: 20px; color: var(--accent); }
 
-  /* ── CATEGORY INDEX PAGES ── */
+  /* INDEX PAGES */
   .index-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; }
   .index-card { background: var(--white); border: 1px solid var(--border); border-radius: 6px; padding: 1.1rem 1.25rem; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s; display: flex; align-items: center; gap: 14px; }
   .index-card:hover { transform: translateY(-1px); box-shadow: 0 4px 14px rgba(26,24,20,0.06); border-color: #C0B8B0; }
@@ -152,18 +153,7 @@
   .index-card-count { font-size: 11px; color: var(--ink-light); margin-top: 2px; }
   .page-title { font-weight: 800; font-size: 28px; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 2px solid var(--ink); text-transform: uppercase; letter-spacing: 0.5px; }
 
-  /* ── DRAWING TOPICS ── */
-  .topics-section { margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--border); }
-  .topics-label { font-size: 10px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: var(--ink-light); margin-bottom: 10px; }
-  .topic-badge { display: inline-flex; align-items: center; font-size: 11px; font-weight: 700; padding: 5px 10px; border-radius: 4px; background: var(--ink); color: var(--white); cursor: pointer; transition: background 0.15s; white-space: nowrap; border: none; }
-  .topic-badge:hover { background: #2E2A26; }
-  .topic-badges-wrap { display: flex; gap: 6px; flex-wrap: wrap; }
-
-  /* Topic tag on grid cards */
-  .tag-topic { font-size: 10px; padding: 2px 7px; border-radius: 3px; border: 1px solid var(--ink); color: var(--ink); background: transparent; cursor: pointer; transition: all 0.12s; white-space: nowrap; font-weight: 600; }
-  .tag-topic:hover { background: var(--ink); color: var(--white); }
-
-  /* ── TOPICS PAGE ── */
+  /* TOPICS PAGE */
   .topics-intro { font-size: 14px; color: var(--ink-mid); max-width: none; margin-bottom: 2rem; line-height: 1.7; }
   .topics-group { margin-bottom: 1rem; }
   .topics-group-label { font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--ink-light); margin-bottom: 8px; }
@@ -175,8 +165,6 @@
   .topics-results-info { font-size: 12px; color: var(--ink-light); margin: 1.25rem 0 1.25rem; min-height: 18px; }
   .topics-clear { font-size: 11px; font-weight: 700; color: var(--accent); cursor: pointer; margin-left: 8px; }
   .topics-clear:hover { text-decoration: underline; }
-
-  /* Topic definition cards */
   .topic-def-section-label { font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--ink-light); margin: 2rem 0 0.75rem; }
   .topic-def-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; margin-bottom: 0.5rem; }
   .topic-def-card { background: var(--white); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; cursor: pointer; transition: border-color 0.15s; }
@@ -186,7 +174,7 @@
   .topic-def-name { font-weight: 800; font-size: 14px; margin-bottom: 5px; }
   .topic-def-desc { font-size: 12px; color: var(--ink-mid); line-height: 1.6; }
 
-  .nav-about { display: none; } /* removed from nav */
+  /* TOPIC PANEL */
   .topic-panel { display: none; position: fixed; inset: 0; background: rgba(20,18,15,0.92); z-index: 500; align-items: center; justify-content: center; padding: 1.5rem; }
   .topic-panel.open { display: flex; }
   .topic-panel-inner { background: var(--white); border-radius: 8px; overflow: hidden; width: 100%; max-width: 1000px; height: 85vh; display: grid; grid-template-columns: 1fr 380px; }
@@ -211,15 +199,22 @@
     .topic-panel-name { font-size: 20px; }
   }
 
-  /* About modal */
+  /* ABOUT MODAL */
   .about-modal { display: none; position: fixed; inset: 0; background: rgba(20,18,15,0.88); z-index: 500; align-items: center; justify-content: center; padding: 2rem; }
   .about-modal.open { display: flex; }
-  .about-modal-inner { background: var(--white); border-radius: 8px; padding: 2.5rem; max-width: 640px; width: 100%; max-height: 88vh; overflow-y: auto; position: relative; }
+  .about-modal-inner { background: var(--white); border-radius: 8px; padding: 2.5rem; max-width: 660px; width: 100%; max-height: 88vh; overflow-y: auto; position: relative; }
   .about-modal-close { position: absolute; top: 1rem; right: 1rem; background: none; border: 1px solid var(--border); border-radius: 4px; width: 32px; height: 32px; cursor: pointer; font-size: 16px; color: var(--ink-mid); display: flex; align-items: center; justify-content: center; }
   .about-modal-close:hover { border-color: var(--ink); color: var(--ink); }
   .about-title { font-weight: 800; font-size: 22px; margin-bottom: 1.5rem; }
   .about-body p { font-size: 14px; line-height: 1.8; color: var(--ink-mid); margin-bottom: 1rem; }
   .about-body p:last-child { margin-bottom: 0; }
+  .about-credits { margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--border); }
+  .about-credits h3 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--ink-light); margin-bottom: 6px; margin-top: 1rem; }
+  .about-credits h3:first-child { margin-top: 0; }
+  .about-credits p { font-size: 13px; color: var(--ink-mid); line-height: 1.6; margin-bottom: 0; }
+  .about-credits a { color: var(--accent); }
+
+  /* MISC */
   .scroll-sentinel { height: 40px; grid-column: 1/-1; display: flex; align-items: center; justify-content: center; }
   .scroll-loading { font-size: 12px; color: var(--ink-light); }
   .loading-state { text-align: center; padding: 5rem 2rem; color: var(--ink-light); font-size: 14px; grid-column: 1/-1; }
@@ -228,9 +223,10 @@
 </style>
 </head>
 <body>
+
 <!-- Topic detail panel -->
 <div class="topic-panel" id="topic-panel" onclick="handlePanelClick(event)">
-  <div class="topic-panel-inner" id="topic-panel-inner">
+  <div class="topic-panel-inner">
     <div class="topic-panel-img-wrap" id="tp-img-wrap">
       <button class="topic-panel-close" onclick="closeTopicPanel()">✕</button>
       <img id="tp-img" src="" alt="">
@@ -254,16 +250,17 @@
     <button class="about-modal-close" onclick="closeAbout()">✕</button>
     <div class="about-title">About the Collection</div>
     <div class="about-body">
-      <p>IDE’s Design Drawing Collection began as a practical resource: a set of objects gathered by the design drawing staff at TU Delft’s Faculty of Industrial Design Engineering to serve as case studies and reference for drawing exercises. Over time, the collection has grown steadily into a significant archive of historically relevant product design, reflecting the material culture and industrial aesthetics of the twentieth century.</p>
-      <p>The objects continue to serve as references for study and exercises related to materialization, perspective, construction, assembly, and form. Many historical objects in the collection are characterized by simple, geometric forms, making them particularly suitable as references for basic drawing exercises.
+      <p>IDE's Design Drawing Collection began as a practical resource: a set of objects gathered by the design drawing staff at TU Delft's Faculty of Industrial Design Engineering to serve as case studies and reference for drawing exercises. Over time, the collection has grown steadily into a significant archive of historically relevant product design, reflecting the material culture and industrial aesthetics of the twentieth century.</p>
+      <p>The objects continue to serve as references for study and exercises related to materialisation, perspective, construction, assembly, and form. Many historical objects in the collection are characterised by simple, geometric forms, making them particularly suitable as references for basic drawing exercises.</p>
       <p>In addition, the collection provides valuable knowledge and insights into the history of twentieth-century product design, as well as the evolution of industrial manufacturing during that period. Today, the collection is estimated to comprise over a thousand objects.</p>
       <p>Beyond its role in design drawing education, the design drawing staff aims to make the collection accessible to all members of the community and to visitors. The Heritage Project, sponsored by Delft University of Technology, has enabled the professional documentation and archiving of the objects. Continuous efforts by staff and teaching assistants have resulted in a clear and accessible catalogue containing object descriptions and photographs.</p>
       <p>This website is part of those efforts: a digital archive that makes the collection searchable and accessible, while linking each object to the drawing skills it was originally intended to teach.</p>
-      <p>Student Assistants involved:</p>
-      <p>Vera Hijlkema (2025/2026)</p>
-      <p>Sophie Tillema (2017)</p>
-      <p>Responsible staff member:</p>
-      <p>J.W. Hoftijzer; j.w.hoftijzer@tudelft.nl</p>
+    </div>
+    <div class="about-credits">
+      <h3>Student Assistants</h3>
+      <p>Vera Hijlkema (2025/'26)<br>Sophie Tillema (2017)</p>
+      <h3>Responsible Staff Member</h3>
+      <p>J.W. Hoftijzer · <a href="mailto:j.w.hoftijzer@tudelft.nl">j.w.hoftijzer@tudelft.nl</a></p>
     </div>
   </div>
 </div>
@@ -290,10 +287,10 @@
 
 <div class="page-wrap">
 
-  <!-- PRODUCTS / GRID VIEW -->
+  <!-- PRODUCTS VIEW -->
   <div id="view-products" style="display:none">
-    <div style="margin-bottom:1.5rem; padding-bottom:1.5rem; border-bottom:1px solid var(--border);">
-      <p style="font-size:14px;line-height:1.7;color:var(--ink-mid);max-width:1000px;">A collection of historical product design objects functioning as reference material for design drawing education. <a onclick="openAbout()" style="color:var(--ink);font-weight:600;text-decoration:underline;cursor:pointer">Read more →</a></p>
+    <div class="intro-banner">
+      <p>A collection of over a thousand historically relevant product design objects, assembled at TU Delft IDE as reference material for design drawing education. <a onclick="openAbout()">Read more →</a></p>
     </div>
     <div class="controls-bar">
       <div class="search-wrap">
@@ -318,7 +315,7 @@
       </div>
       <select class="filter-select" id="f-sort" onchange="renderGrid()" style="border-color:var(--border);min-width:130px">
         <option value="views">Most viewed</option>
-        <option value="name">Name A – Z</option>
+        <option value="name">Name A–Z</option>
         <option value="id">Object ID</option>
         <option value="year-asc">Year: oldest first</option>
         <option value="year-desc">Year: newest first</option>
@@ -342,7 +339,7 @@
     <div class="related-section" id="related-section"></div>
   </div>
 
-  <!-- CATEGORY DETAIL VIEW (brand / designer / era) -->
+  <!-- CATEGORY DETAIL VIEW -->
   <div id="view-category" style="display:none">
     <div class="breadcrumb" id="cat-breadcrumb-wrap"></div>
     <div id="cat-header"></div>
@@ -367,23 +364,25 @@
     <div id="eras-grid" class="index-grid"></div>
   </div>
 
-  <!-- DRAWINGS VIEW (hidden until drawings.csv is added) -->
+  <!-- TOPICS PAGE -->
+  <div id="view-topics" style="display:none">
+    <div class="page-title">Drawing Topics</div>
+    <p class="topics-intro">Browse the collection by drawing technique. Each product has been tagged based on its geometric and material properties. Select one or more topics to find matching objects. For more information on Delft Design Drawing, visit <a href="http://www.delftdesigndrawing.com/" target="_blank" style="color:var(--accent);text-decoration:underline">delftdesigndrawing.com</a>.</p>
+    <div id="topic-toggles"></div>
+    <div class="topics-results-info" id="topics-results-info"></div>
+    <div id="topics-grid" class="product-grid"></div>
+  </div>
+
+  <!-- DRAWINGS VIEW (hidden until drawings.csv exists) -->
   <div id="view-drawings" style="display:none">
     <div class="page-title">Drawings</div>
     <p style="font-size:14px;color:var(--ink-mid);line-height:1.7;max-width:620px;margin-bottom:2rem;">Student drawings from the Design Drawing Collection archive. Each drawing is linked to the object it depicts.</p>
     <div id="drawings-grid" class="product-grid"></div>
   </div>
-  <div id="view-topics" style="display:none">
-    <div class="page-title">Drawing Topics</div>
-    <p class="topics-intro">Browse the collection by drawing technique. Each product has been tagged based on its geometric and material properties. Select one or more topics to find matching objects. For more information on Delft Design Drawing, visit <a href="http://www.delftdesigndrawing.com/" target="_blank" style="color:var(--accent);text-decoration:underline">delftdesigndrawing.com</a>.</p>
-    <div class="topics-filter-row" id="topic-toggles"></div>
-    <div class="topics-results-info" id="topics-results-info"></div>
-    <div id="topics-grid" class="product-grid"></div>
-  </div>
 
 </div>
 
-<footer>Design Drawing Collection Archive · Faculty of Industrial Design Engineering · TU Delft · <a onclick="openAbout()" style="color:var(--ink-light);text-decoration:underline;cursor:pointer">About</a></footer>
+<footer>Design Drawing Collection Archive · Faculty of Industrial Design Engineering · TU Delft · <a onclick="openAbout()" style="color:var(--ink-light);text-decoration:underline;cursor:pointer">About this collection</a></footer>
 
 <script>
 let allProducts = [];
@@ -398,7 +397,6 @@ const ERA_SVG = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stro
 function safeAttr(s) { return (s||'').replace(/&/g,'&amp;').replace(/'/g,'&#39;').replace(/"/g,'&quot;'); }
 function safeJS(s) { return (s||'').replace(/\\/g,'\\\\').replace(/'/g,"\\'"); }
 
-// ── CSV PARSER ─────────────────────────────────────────────────
 function parseCSV(text) {
   const lines = text.trim().split('\n');
   const sep = lines[0].includes(';') ? ';' : ',';
@@ -420,7 +418,6 @@ function parseCSV(text) {
   }).filter(p => p['ObjectID']);
 }
 
-// ── LOAD DATA ──────────────────────────────────────────────────
 async function loadData() {
   try {
     const res = await fetch('products.csv?v=' + Date.now());
@@ -432,19 +429,16 @@ async function loadData() {
     ]);
     buildFilters();
     document.getElementById('header-count').textContent = allProducts.length + ' objects';
-    // Show Drawings nav only if drawings.csv exists
     fetch('drawings.csv', { method: 'HEAD' }).then(r => {
       if (r.ok) { const el = document.getElementById('nav-drawings'); if (el) el.style.display = 'flex'; }
     }).catch(() => {});
     routeFromHash();
   } catch(e) {
-    document.getElementById('grid-container').innerHTML =
-      '<div class="empty-state"><strong>Could not load products.csv</strong></div>';
+    document.getElementById('grid-container').innerHTML = '<div class="loading-state">Could not load products.csv</div>';
     showView('products');
   }
 }
 
-// ── HASH-BASED ROUTING ─────────────────────────────────────────
 function navigate(view, type, name) {
   let hash = '#' + view;
   if (type) hash += '/' + encodeURIComponent(type);
@@ -457,9 +451,7 @@ function routeFromHash() {
   const hash = location.hash.slice(1) || 'products';
   const parts = hash.split('/').map(decodeURIComponent);
   const view = parts[0] || 'products';
-
   setNavActive(view === 'category' ? parts[1] : view);
-
   if (view === 'products') { showView('products'); applyFilters(); }
   else if (view === 'detail') { showView('detail'); renderDetail(parts[1]); }
   else if (view === 'category') { showView('category'); renderCategory(parts[1], parts[2]); }
@@ -481,13 +473,11 @@ function setNavActive(view) {
 
 window.addEventListener('popstate', routeFromHash);
 
-// ── VIEWS ──────────────────────────────────────────────────────
 const VIEWS = ['products','detail','category','brands','designers','eras','topics','drawings'];
 function showView(v) {
   VIEWS.forEach(id => { const el = document.getElementById('view-'+id); if(el) el.style.display = id===v ? 'block' : 'none'; });
 }
 
-// ── FILTERS ────────────────────────────────────────────────────
 function unique(key) { return [...new Set(allProducts.map(p=>p[key]).filter(Boolean))].sort(); }
 function populateSelect(id, key, label) {
   const sel = document.getElementById(id), cur = sel.value;
@@ -512,18 +502,18 @@ function applyFilters() {
   const f = getF();
   const hasAny = f.search||f.designer||f.brand||f.era||f.country;
   document.getElementById('clear-btn').style.display = hasAny ? 'block' : 'none';
-
-  // Update filter select styling + show/hide ✕ buttons
   [['designer','wrap-designer'],['brand','wrap-brand'],['era','wrap-era'],['country','wrap-country']].forEach(([k,wid])=>{
     const sel = document.getElementById('f-'+k);
     const wrap = document.getElementById(wid);
-    const active = !!sel.value;
-    sel.classList.toggle('active', active);
-    wrap.classList.toggle('has-value', active);
+    sel.classList.toggle('active', !!sel.value);
+    wrap.classList.toggle('has-value', !!sel.value);
   });
-
   filteredProducts = allProducts.filter(p => {
-    if (f.search) { const hay=[p['ObjectID'],p['Product (EN)'],p['Designer'],p['Brand'],p['Model/Type'],p['Country']].join(' ').toLowerCase(); if(!hay.includes(f.search)) return false; }
+    if (f.search) {
+      const topics = getProductTopics(p).join(' ').toLowerCase();
+      const hay = [p['ObjectID'],p['Product (EN)'],p['Designer'],p['Brand'],p['Model/Type'],p['Country'],topics].join(' ').toLowerCase();
+      if (!hay.includes(f.search)) return false;
+    }
     if (f.designer && p['Designer']!==f.designer) return false;
     if (f.brand && p['Brand']!==f.brand) return false;
     if (f.era && p['Era']!==f.era) return false;
@@ -533,11 +523,7 @@ function applyFilters() {
   renderGrid();
   renderChips(f);
 }
-
-function clearOne(key) {
-  document.getElementById('f-'+key).value = '';
-  applyFilters();
-}
+function clearOne(key) { document.getElementById('f-'+key).value = ''; applyFilters(); }
 function clearFilters() {
   document.getElementById('search').value = '';
   ['designer','brand','era','country'].forEach(k => document.getElementById('f-'+k).value='');
@@ -556,9 +542,6 @@ function renderChips(f) {
   document.getElementById('active-chips').innerHTML = chips.join('');
 }
 
-// ── IMAGE LOADING — createImageBitmap with imageOrientation ───
-// This avoids CORS/fetch issues and uses the browser's native EXIF handling.
-// Falls back to a plain <img> if createImageBitmap isn't supported.
 function loadImageToCanvas(src, canvas, fallbackEl) {
   if (!src) { if (fallbackEl) fallbackEl.style.display = 'flex'; return; }
   const img = new Image();
@@ -566,31 +549,14 @@ function loadImageToCanvas(src, canvas, fallbackEl) {
   img.onload = () => {
     if (typeof createImageBitmap === 'function') {
       createImageBitmap(img, { imageOrientation: 'from-image' })
-        .then(bitmap => {
-          canvas.width  = bitmap.width;
-          canvas.height = bitmap.height;
-          canvas.getContext('2d').drawImage(bitmap, 0, 0);
-          bitmap.close();
-        })
-        .catch(() => {
-          // Fallback: draw directly without orientation correction
-          canvas.width  = img.naturalWidth;
-          canvas.height = img.naturalHeight;
-          canvas.getContext('2d').drawImage(img, 0, 0);
-        });
-    } else {
-      canvas.width  = img.naturalWidth;
-      canvas.height = img.naturalHeight;
-      canvas.getContext('2d').drawImage(img, 0, 0);
-    }
+        .then(bitmap => { canvas.width=bitmap.width; canvas.height=bitmap.height; canvas.getContext('2d').drawImage(bitmap,0,0); bitmap.close(); })
+        .catch(() => { canvas.width=img.naturalWidth; canvas.height=img.naturalHeight; canvas.getContext('2d').drawImage(img,0,0); });
+    } else { canvas.width=img.naturalWidth; canvas.height=img.naturalHeight; canvas.getContext('2d').drawImage(img,0,0); }
   };
-  img.onerror = () => {
-    if (fallbackEl) { canvas.style.display = 'none'; fallbackEl.style.display = 'flex'; }
-  };
+  img.onerror = () => { if (fallbackEl) { canvas.style.display='none'; fallbackEl.style.display='flex'; } };
   img.src = src;
 }
 
-// ── PRODUCT CARDS ──────────────────────────────────────────────
 function productCardHTML(p, ctxPrefix) {
   const prefix = ctxPrefix || 'g';
   const heroTitle = p['Model/Type'] || p['Product (EN)'];
@@ -598,11 +564,6 @@ function productCardHTML(p, ctxPrefix) {
   if (p['Model/Type'] && p['Product (EN)']) subParts.push(p['Product (EN)']);
   if (p['Brand']) subParts.push(p['Brand']);
   const subLine = subParts.join(' · ') || '—';
-  const topics = getProductTopics(p);
-  const topicTagsHTML = topics.length ? topics.map(t =>
-    `<span class="tag-topic" onclick="event.stopPropagation();selectedTopics.clear();selectedTopics.add('${safeJS(t)}');navigate('topics')">${t}</span>`
-  ).join('') : '';
-
   return `<div class="product-card" onclick="navigate('detail','${safeJS(p['ObjectID'])}')">
     <div class="card-img-wrap">
       <canvas id="${prefix}-${safeAttr(p['ObjectID'])}" style="width:100%;height:100%;object-fit:cover;display:block"></canvas>
@@ -612,12 +573,6 @@ function productCardHTML(p, ctxPrefix) {
       <div class="card-id">${p['ObjectID']}</div>
       <div class="card-name">${heroTitle}</div>
       <div class="card-sub">${subLine}</div>
-      <div class="card-tags">
-        ${p['Brand']?`<span class="tag" onclick="event.stopPropagation();navigate('category','brand','${safeJS(p['Brand'])}')">${p['Brand']}</span>`:''}
-        ${p['Era']?`<span class="tag" onclick="event.stopPropagation();navigate('category','era','${safeJS(p['Era'])}')">${p['Era']}</span>`:''}
-        ${p['Country']?`<span class="tag" onclick="event.stopPropagation();setFilter('Country','${safeJS(p['Country'])}')">${p['Country']}</span>`:''}
-        ${topicTagsHTML}
-      </div>
     </div>
   </div>`;
 }
@@ -633,42 +588,24 @@ function loadCardsImages(products, prefix) {
   });
 }
 
-// ── VIEW TRACKING ──────────────────────────────────────────────
 function trackView(id) {
-  try {
-    const key = 'views_' + id;
-    localStorage.setItem(key, (parseInt(localStorage.getItem(key)||'0') + 1).toString());
-  } catch(e) {}
+  try { const k='views_'+id; localStorage.setItem(k,(parseInt(localStorage.getItem(k)||'0')+1).toString()); } catch(e) {}
 }
 function getViews(id) {
-  try { return parseInt(localStorage.getItem('views_' + id)||'0'); } catch(e) { return 0; }
+  try { return parseInt(localStorage.getItem('views_'+id)||'0'); } catch(e) { return 0; }
 }
 
-// ── SORT ───────────────────────────────────────────────────────
 function getSortedProducts(products) {
   const sort = document.getElementById('f-sort') ? document.getElementById('f-sort').value : 'views';
   const arr = [...products];
   if (sort === 'views') return arr.sort((a,b) => getViews(b['ObjectID']) - getViews(a['ObjectID']));
   if (sort === 'name')  return arr.sort((a,b) => (a['Product (EN)']||'').localeCompare(b['Product (EN)']||''));
   if (sort === 'id')    return arr.sort((a,b) => (a['ObjectID']||'').localeCompare(b['ObjectID']||''));
-  if (sort === 'year-asc') return arr.sort((a,b) => {
-    const ya = parseInt(a['Year'])||0, yb = parseInt(b['Year'])||0;
-    if (!ya && !yb) return 0;
-    if (!ya) return 1;  // unknown → end
-    if (!yb) return -1;
-    return ya - yb;
-  });
-  if (sort === 'year-desc') return arr.sort((a,b) => {
-    const ya = parseInt(a['Year'])||0, yb = parseInt(b['Year'])||0;
-    if (!ya && !yb) return 0;
-    if (!ya) return 1;  // unknown → end
-    if (!yb) return -1;
-    return yb - ya;
-  });
+  if (sort === 'year-asc') return arr.sort((a,b) => { const ya=parseInt(a['Year'])||0,yb=parseInt(b['Year'])||0; if(!ya&&!yb)return 0; if(!ya)return 1; if(!yb)return -1; return ya-yb; });
+  if (sort === 'year-desc') return arr.sort((a,b) => { const ya=parseInt(a['Year'])||0,yb=parseInt(b['Year'])||0; if(!ya&&!yb)return 0; if(!ya)return 1; if(!yb)return -1; return yb-ya; });
   return arr;
 }
 
-// ── INFINITE SCROLL ────────────────────────────────────────────
 const PAGE_SIZE = 48;
 let displayedCount = 0;
 let sortedProducts = [];
@@ -676,84 +613,49 @@ let scrollObserver = null;
 
 function renderGrid() {
   const c = document.getElementById('grid-container');
-  document.getElementById('result-count').textContent =
-    filteredProducts.length + ' of ' + allProducts.length + ' objects';
-
-  if (!filteredProducts.length) {
-    c.innerHTML = '<div class="no-results">No results — try adjusting your filters</div>';
-    return;
-  }
-
-  // Disconnect any existing observer
+  document.getElementById('result-count').textContent = filteredProducts.length + ' of ' + allProducts.length + ' objects';
+  if (!filteredProducts.length) { c.innerHTML='<div class="no-results">No results — try adjusting your filters</div>'; return; }
   if (scrollObserver) { scrollObserver.disconnect(); scrollObserver = null; }
-
   sortedProducts = getSortedProducts(filteredProducts);
-  displayedCount = 0;
-  c.innerHTML = '';
+  displayedCount = 0; c.innerHTML = '';
   appendNextPage();
 }
 
 function appendNextPage() {
   const c = document.getElementById('grid-container');
-  // Remove old sentinel if present
-  const old = document.getElementById('scroll-sentinel');
-  if (old) old.remove();
-
+  const old = document.getElementById('scroll-sentinel'); if (old) old.remove();
   const batch = sortedProducts.slice(displayedCount, displayedCount + PAGE_SIZE);
   if (!batch.length) return;
-
   const frag = document.createDocumentFragment();
-  batch.forEach(p => {
-    const div = document.createElement('div');
-    div.innerHTML = productCardHTML(p, 'g');
-    frag.appendChild(div.firstElementChild);
-  });
+  batch.forEach(p => { const div=document.createElement('div'); div.innerHTML=productCardHTML(p,'g'); frag.appendChild(div.firstElementChild); });
   c.appendChild(frag);
   loadCardsImages(batch, 'g');
   displayedCount += batch.length;
-
-  // Add sentinel if more to load
   if (displayedCount < sortedProducts.length) {
     const sentinel = document.createElement('div');
-    sentinel.id = 'scroll-sentinel';
-    sentinel.className = 'scroll-sentinel';
-    sentinel.innerHTML = '<span class="scroll-loading">Loading more…</span>';
+    sentinel.id='scroll-sentinel'; sentinel.className='scroll-sentinel';
+    sentinel.innerHTML='<span class="scroll-loading">Loading more…</span>';
     c.appendChild(sentinel);
-
     scrollObserver = new IntersectionObserver(entries => {
-      if (entries[0].isIntersecting) {
-        scrollObserver.disconnect();
-        scrollObserver = null;
-        appendNextPage();
-      }
+      if (entries[0].isIntersecting) { scrollObserver.disconnect(); scrollObserver=null; appendNextPage(); }
     }, { rootMargin: '200px' });
     scrollObserver.observe(sentinel);
   }
 }
 
-// ── PRODUCT DETAIL ─────────────────────────────────────────────
 function renderDetail(id) {
   const p = allProducts.find(x=>x['ObjectID']===id);
   if (!p) { navigate('products'); return; }
   trackView(id);
-
   document.getElementById('detail-breadcrumb').innerHTML =
     `<a onclick="navigate('products')">← Collection</a><span>/</span><span>${p['Product (EN)']}</span>`;
-
   const imgWrap = document.getElementById('detail-image-wrap');
   if (p['Photo']) {
     imgWrap.innerHTML = `<div class="detail-img-canvas-wrap"><canvas id="detail-canvas"></canvas></div>`;
-    requestAnimationFrame(() => {
-      const canvas = document.getElementById('detail-canvas');
-      if (canvas) loadImageToCanvas(p['Photo'], canvas, null);
-    });
-  } else {
-    imgWrap.innerHTML = `<div class="detail-image-placeholder">${PLACEHOLDER_SVG}</div>`;
-  }
+    requestAnimationFrame(() => { const c=document.getElementById('detail-canvas'); if(c) loadImageToCanvas(p['Photo'],c,null); });
+  } else { imgWrap.innerHTML=`<div class="detail-image-placeholder">${PLACEHOLDER_SVG}</div>`; }
 
-  // Combine Colour + Colour 2 into one display value
   const colourVal = [p['Colour'], p['Colour 2']].filter(Boolean).join(' · ') || null;
-
   const rows = [
     ['Brand',        p['Brand'],      `navigate('category','brand','${safeJS(p['Brand'])}')`],
     ['Model / Type', p['Model/Type'], null],
@@ -793,38 +695,27 @@ function renderDetail(id) {
   if (related.length && p['Brand']) {
     rs.innerHTML = `<div class="related-title">More from ${p['Brand']}</div><div class="product-grid">${related.map(r=>productCardHTML(r,'r')).join('')}</div>`;
     loadCardsImages(related, 'r');
-  } else { rs.innerHTML = ''; }
+  } else { rs.innerHTML=''; }
 }
 
-// ── CATEGORY DETAIL (brand/designer/era) ──────────────────────
 function renderCategory(type, name) {
   document.getElementById('cat-breadcrumb-wrap').innerHTML =
     `<a onclick="navigate('${type}s')">← ${type.charAt(0).toUpperCase()+type.slice(1)}s</a><span>/</span><span>${name}</span>`;
-
   const products = allProducts.filter(p =>
-    type==='brand' ? p['Brand']===name :
-    type==='designer' ? p['Designer']===name : p['Era']===name);
-  const info = (type==='brand' ? metadata.brands : type==='designer' ? metadata.designers : metadata.eras)[name]||{};
-
+    type==='brand'?p['Brand']===name:type==='designer'?p['Designer']===name:p['Era']===name);
+  const info = (type==='brand'?metadata.brands:type==='designer'?metadata.designers:metadata.eras)[name]||{};
   let headerHTML = '';
   if (type==='era') {
-    const dates = ERA_DATES[name] || '';
-    headerHTML = `
-      <div class="era-header">
-        <div class="era-name">${name}</div>
-        ${dates ? `<div class="era-dates">${dates}</div>` : ''}
-      </div>
-      ${info.description ? `<p class="category-desc">${info.description}</p>` : `<p class="category-no-desc">No description yet — add one in eras.json</p>`}`;
+    const dates = ERA_DATES[name]||'';
+    headerHTML = `<div class="era-header"><div class="era-name">${name}</div>${dates?`<div class="era-dates">${dates}</div>`:''}</div>
+      ${info.description?`<p class="category-desc">${info.description}</p>`:`<p class="category-no-desc">No description yet — add one in eras.json</p>`}`;
   } else {
-    const ph = type==='designer' ? PERSON_SVG : BRAND_SVG;
-    const imgHTML = info.image
-      ? `<img class="category-image" src="${safeAttr(info.image)}" alt="${safeAttr(name)}" onerror="this.style.display='none'">`
-      : `<div class="category-image-placeholder">${ph}</div>`;
+    const ph = type==='designer'?PERSON_SVG:BRAND_SVG;
+    const imgHTML = info.image?`<img class="category-image" src="${safeAttr(info.image)}" alt="${safeAttr(name)}" onerror="this.style.display='none'">`:`<div class="category-image-placeholder">${ph}</div>`;
     headerHTML = `${imgHTML}<div class="category-type">${type==='brand'?'Brand':'Designer'}</div><div class="category-title">${name}</div>
       ${info.description?`<p class="category-desc">${info.description}</p>`:`<p class="category-no-desc">No description yet — add one in ${type}s.json</p>`}`;
   }
   document.getElementById('cat-header').innerHTML = headerHTML;
-
   const grid = document.getElementById('cat-grid');
   if (!products.length) { grid.innerHTML='<div class="no-results">No products found</div>'; return; }
   grid.innerHTML = `<div style="grid-column:1/-1"><div class="category-section-title">${products.length} object${products.length!==1?'s':''} in collection</div></div>`
@@ -832,25 +723,20 @@ function renderCategory(type, name) {
   loadCardsImages(products, 'cat');
 }
 
-// ── INDEX PAGES (brands / designers / eras) ───────────────────
 function renderIndex(type) {
-  const keyMap = { brands:'Brand', designers:'Designer', eras:'Era' };
+  const keyMap = {brands:'Brand',designers:'Designer',eras:'Era'};
   const key = keyMap[type];
   const names = unique(key);
-  const metaObj = type==='brands' ? metadata.brands : type==='designers' ? metadata.designers : metadata.eras;
-  const ph = type==='brands' ? BRAND_SVG : type==='designers' ? PERSON_SVG : ERA_SVG;
-  const catType = type.slice(0,-1); // 'brand','designer','era'
-
+  const metaObj = type==='brands'?metadata.brands:type==='designers'?metadata.designers:metadata.eras;
+  const ph = type==='brands'?BRAND_SVG:type==='designers'?PERSON_SVG:ERA_SVG;
+  const catType = type.slice(0,-1);
   const grid = document.getElementById(type+'-grid');
-  // For eras: only show entries that exist in ERA_DATES (filters out typos like "Neth")
-  const filteredNames = type === 'eras' ? names.filter(n => ERA_DATES[n]) : names;
+  const filteredNames = type==='eras' ? names.filter(n=>ERA_DATES[n]) : names;
   grid.innerHTML = filteredNames.map(name => {
     const count = allProducts.filter(p=>p[key]===name).length;
     const info = metaObj[name]||{};
-    const iconHTML = info.image
-      ? `<img src="${safeAttr(info.image)}" alt="${safeAttr(name)}" onerror="this.style.display='none'">`
-      : ph;
-    const dates = type==='eras' ? ERA_DATES[name] : '';
+    const iconHTML = info.image?`<img src="${safeAttr(info.image)}" alt="${safeAttr(name)}" onerror="this.style.display='none'">`:`${ph}`;
+    const dates = type==='eras'?ERA_DATES[name]:'';
     return `<div class="index-card" onclick="navigate('category','${catType}','${safeJS(name)}')">
       <div class="index-card-icon">${iconHTML}</div>
       <div>
@@ -863,19 +749,22 @@ function renderIndex(type) {
 }
 
 const TOPIC_GROUPS = {
-  'Form': ['Block Shapes', 'Cylindrical Shapes', 'Singular Rounding', 'Multiple Roundings'],
-  'Materialisation': ['Matt Surfaces', 'Glossy Surfaces', 'Chrome', 'Transparent Materials'],
+  'Form':                ['Block Shapes', 'Cylindrical Shapes', 'Singular Rounding', 'Multiple Roundings'],
+  'Materialisation':     ['Matt Surfaces', 'Glossy Surfaces', 'Chrome', 'Transparent Materials'],
+  'Communication':       ['Exploded View', 'Cross Sections'],
 };
 
 const TOPIC_IMAGES = {
-  'Block Shapes':         'photos/topics/Block_Shapes.jpeg',
-  'Cylindrical Shapes':   'photos/topics/Cylindrical_Shapes.jpeg',
-  'Singular Rounding':    'photos/topics/Singular_Roundings.jpeg',
-  'Multiple Roundings':   'photos/topics/Multiple_Roundings.jpeg',
-  'Matt Surfaces':        'photos/topics/Matte_Surfaces.jpeg',
-  'Glossy Surfaces':      'photos/topics/Glossy_Surfaces.jpeg',
-  'Chrome':               'photos/topics/Chrome.jpeg',
-  'Transparent Materials':'photos/topics/Transparent_Materials.jpeg',
+  'Block Shapes':           'photos/topics/Block_Shapes.jpeg',
+  'Cylindrical Shapes':     'photos/topics/Cylindrical_Shapes.jpeg',
+  'Singular Rounding':      'photos/topics/Singular_Roundings.jpeg',
+  'Multiple Roundings':     'photos/topics/Multiple_Roundings.jpeg',
+  'Matt Surfaces':          'photos/topics/Matte_Surfaces.jpeg',
+  'Glossy Surfaces':        'photos/topics/Glossy_Surfaces.jpeg',
+  'Chrome':                 'photos/topics/Chrome.jpeg',
+  'Transparent Materials':  'photos/topics/Transparent_Materials.jpeg',
+  'Exploded View':          'photos/topics/Exploded_View.jpeg',
+  'Cross Sections':         'photos/topics/Cross_Sections.jpeg',
 };
 
 const DRAWING_TOPICS = {
@@ -910,7 +799,15 @@ const DRAWING_TOPICS = {
   'Transparent Materials': {
     short: 'Glass or clear plastic components',
     desc: 'Transparent materials combine transparency, reflection, and refraction. The technique involves drawing visible internal structure, overlaying a controlled surface reflection, and adding a tinted cast shadow. Edges are rendered dark; central faces stay light. Common in packaging, electronics, and glassware.'
-  }
+  },
+  'Exploded View': {
+    short: 'Multi-part products showing assembly and disassembly',
+    desc: 'An exploded view separates the components of a product along perspective directions to show how parts fit together. Each component is displaced along the same axis it would move during assembly. The lines connecting parts remain parallel to the perspective direction, making the spatial relationship between components immediately legible.'
+  },
+  'Cross Sections': {
+    short: 'Cut-through views revealing internal structure',
+    desc: 'Cross sections show the internal structure of an object by drawing a plane cutting through the form. The cut face is typically shown with a hatching pattern to distinguish it from visible surfaces. Intersecting guidelines help define where curved or complex forms meet the cutting plane, making this technique essential for communicating wall thickness, internal geometry, and component relationships.'
+  },
 };
 
 let selectedTopics = new Set();
@@ -921,7 +818,6 @@ function getProductTopics(p) {
   return raw.split(';').map(t => t.trim()).filter(Boolean);
 }
 
-// ── TOPICS PAGE ────────────────────────────────────────────────
 function renderTopicsPage() {
   const togglesEl = document.getElementById('topic-toggles');
   togglesEl.innerHTML = Object.entries(TOPIC_GROUPS).map(([groupName, topics]) => `
@@ -930,37 +826,29 @@ function renderTopicsPage() {
       <div class="topics-filter-row">${topics.map(name => {
         const count = allProducts.filter(p => getProductTopics(p).includes(name)).length;
         const sel = selectedTopics.has(name) ? 'selected' : '';
-        return `<button class="topic-toggle ${sel}" onclick="toggleTopic('${safeJS(name)}')">
-          ${name}<span class="t-count">${count}</span>
-        </button>`;
+        return `<button class="topic-toggle ${sel}" onclick="toggleTopic('${safeJS(name)}')">${name}<span class="t-count">${count}</span></button>`;
       }).join('')}</div>
     </div>`).join('');
-
   renderTopicsGrid();
 }
 
 function toggleTopic(name) {
-  if (selectedTopics.has(name)) selectedTopics.delete(name);
-  else selectedTopics.add(name);
+  if (selectedTopics.has(name)) selectedTopics.delete(name); else selectedTopics.add(name);
   renderTopicsPage();
 }
 
 function renderTopicsGrid() {
   const grid = document.getElementById('topics-grid');
   const infoEl = document.getElementById('topics-results-info');
-
   if (selectedTopics.size === 0) {
     infoEl.innerHTML = 'Select one or more topics above to browse matching products.';
-    // Show definition cards split by group
     grid.innerHTML = `<div style="grid-column:1/-1">${
       Object.entries(TOPIC_GROUPS).map(([groupName, topics]) => `
         <div class="topic-def-section-label">${groupName}</div>
         <div class="topic-def-grid">${topics.map(name => {
           const t = DRAWING_TOPICS[name];
           const imgSrc = TOPIC_IMAGES[name] || '';
-          const imgHTML = imgSrc
-            ? `<img class="topic-def-img" src="${imgSrc}" alt="${name}" onclick="event.stopPropagation();openTopicPanel('${safeJS(name)}')" onerror="this.style.display='none'">`
-            : '';
+          const imgHTML = imgSrc ? `<img class="topic-def-img" src="${imgSrc}" alt="${name}" onclick="event.stopPropagation();openTopicPanel('${safeJS(name)}')" onerror="this.style.display='none'">` : '';
           return `<div class="topic-def-card" onclick="toggleTopic('${safeJS(name)}');renderTopicsPage()">
             ${imgHTML}
             <div class="topic-def-body">
@@ -972,25 +860,14 @@ function renderTopicsGrid() {
     }</div>`;
     return;
   }
-
   const selected = [...selectedTopics];
-  const matching = allProducts.filter(p => {
-    const pt = getProductTopics(p);
-    return selected.every(t => pt.includes(t));
-  });
-
+  const matching = allProducts.filter(p => { const pt=getProductTopics(p); return selected.every(t=>pt.includes(t)); });
   const clearLink = `<span class="topics-clear" onclick="selectedTopics.clear();renderTopicsPage()">Clear</span>`;
   infoEl.innerHTML = `<strong>${matching.length}</strong> object${matching.length!==1?'s':''} match ${selected.map(t=>`<em>${t}</em>`).join(' + ')} ${clearLink}`;
-
-  if (!matching.length) {
-    grid.innerHTML = '<div class="no-results">No products match all selected topics.</div>';
-    return;
-  }
-
+  if (!matching.length) { grid.innerHTML='<div class="no-results">No products match all selected topics.</div>'; return; }
   grid.innerHTML = matching.map(p => productCardHTML(p, 'tp')).join('');
   loadCardsImages(matching, 'tp');
 }
-
 
 const ERA_DATES = {
   'Pre-1950':           'Before 1950',
@@ -1000,8 +877,6 @@ const ERA_DATES = {
   'Digital Era':        '2000 – present',
 };
 
-// ── SCROLL-SHRINK HEADER ──────────────────────────────────────
-// Use two thresholds to avoid glitching at the boundary
 const hdr = document.querySelector('header');
 window.addEventListener('scroll', () => {
   const y = window.scrollY;
@@ -1009,17 +884,13 @@ window.addEventListener('scroll', () => {
   else if (y < 20) hdr.classList.remove('scrolled');
 }, { passive: true });
 
-// ── TOPIC PANEL (image + text + prev/next) ─────────────────────
-const TOPIC_ORDER = Object.keys(DRAWING_TOPICS); // flat ordered list
+const TOPIC_ORDER = Object.keys(DRAWING_TOPICS);
 let currentTopicIndex = 0;
 
 function getTopicGroup(name) {
-  for (const [g, topics] of Object.entries(TOPIC_GROUPS)) {
-    if (topics.includes(name)) return g;
-  }
+  for (const [g, topics] of Object.entries(TOPIC_GROUPS)) { if (topics.includes(name)) return g; }
   return '';
 }
-
 function openTopicPanel(name) {
   currentTopicIndex = TOPIC_ORDER.indexOf(name);
   if (currentTopicIndex < 0) currentTopicIndex = 0;
@@ -1027,7 +898,6 @@ function openTopicPanel(name) {
   document.getElementById('topic-panel').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
-
 function updateTopicPanel() {
   const name = TOPIC_ORDER[currentTopicIndex];
   const t = DRAWING_TOPICS[name];
@@ -1035,49 +905,27 @@ function updateTopicPanel() {
   document.getElementById('tp-name').textContent = name;
   document.getElementById('tp-group').textContent = getTopicGroup(name);
   document.getElementById('tp-desc').textContent = t.desc;
-  document.getElementById('tp-counter').textContent = (currentTopicIndex + 1) + ' / ' + TOPIC_ORDER.length;
+  document.getElementById('tp-counter').textContent = (currentTopicIndex+1) + ' / ' + TOPIC_ORDER.length;
   const img = document.getElementById('tp-img');
-  img.src = imgSrc;
-  img.alt = name;
-  img.style.display = imgSrc ? 'block' : 'none';
+  img.src = imgSrc; img.alt = name; img.style.display = imgSrc ? 'block' : 'none';
   document.getElementById('tp-prev').disabled = currentTopicIndex === 0;
   document.getElementById('tp-next').disabled = currentTopicIndex === TOPIC_ORDER.length - 1;
 }
-
 function stepPanel(dir) {
   const next = currentTopicIndex + dir;
-  if (next >= 0 && next < TOPIC_ORDER.length) {
-    currentTopicIndex = next;
-    updateTopicPanel();
-  }
+  if (next >= 0 && next < TOPIC_ORDER.length) { currentTopicIndex=next; updateTopicPanel(); }
 }
+function closeTopicPanel() { document.getElementById('topic-panel').classList.remove('open'); document.body.style.overflow=''; }
+function handlePanelClick(e) { if (e.target===document.getElementById('topic-panel')) closeTopicPanel(); }
 
-function closeTopicPanel() {
-  document.getElementById('topic-panel').classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-function handlePanelClick(e) {
-  if (e.target === document.getElementById('topic-panel')) closeTopicPanel();
-}
-
-// ── ABOUT MODAL ────────────────────────────────────────────────
-function openAbout() {
-  document.getElementById('about-modal').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function closeAbout() {
-  document.getElementById('about-modal').classList.remove('open');
-  document.body.style.overflow = '';
-}
-function handleAboutClick(e) {
-  if (e.target === document.getElementById('about-modal')) closeAbout();
-}
+function openAbout() { document.getElementById('about-modal').classList.add('open'); document.body.style.overflow='hidden'; }
+function closeAbout() { document.getElementById('about-modal').classList.remove('open'); document.body.style.overflow=''; }
+function handleAboutClick(e) { if (e.target===document.getElementById('about-modal')) closeAbout(); }
 
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') { closeTopicPanel(); closeAbout(); }
-  if (e.key === 'ArrowRight' && document.getElementById('topic-panel').classList.contains('open')) stepPanel(1);
-  if (e.key === 'ArrowLeft' && document.getElementById('topic-panel').classList.contains('open')) stepPanel(-1);
+  if (e.key==='Escape') { closeTopicPanel(); closeAbout(); }
+  if (e.key==='ArrowRight' && document.getElementById('topic-panel').classList.contains('open')) stepPanel(1);
+  if (e.key==='ArrowLeft' && document.getElementById('topic-panel').classList.contains('open')) stepPanel(-1);
 });
 
 loadData();
